@@ -1,0 +1,32 @@
+{
+    "name": "algo.ground",
+    "version": "1.0.0",
+    "description": "Algorithms and Data Structures",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/danorel/algo.ground.git"
+    },
+    "keywords": [
+        "Algorithm",
+        "Data",
+        "Structure"
+    ],
+    "author": "Danyil Orel",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/danorel/algo.ground/issues"
+    },
+    "homepage": "https://github.com/danorel/algo.ground#readme",
+    "devDependencies": {
+        "@types/jest": "^26.0.24",
+        "jest": "^27.0.6",
+        "typescript": "^4.3.5"
+    },
+    "dependencies": {
+        "ts-jest": "^27.0.3"
+    }
+}
