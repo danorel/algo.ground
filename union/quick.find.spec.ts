@@ -1,8 +1,8 @@
-import { QuickUnionFind } from "./quick.find";
+import { QuickFind } from "./quick.find";
 
-describe('QuickUnionFind', () => {
+describe('QuickFind', () => {
     describe('connected', () => {
-        const quf = new QuickUnionFind(5);
+        const quf = new QuickFind(5);
         quf.data = [0, 1, 2, 1, 1];
 
         test('returns boolean of connectivity state between nodes', () => {
@@ -14,7 +14,7 @@ describe('QuickUnionFind', () => {
     });
 
     describe('union', () => {
-        const quf = new QuickUnionFind(5);
+        const quf = new QuickFind(5);
         const data = quf.data;
 
         test('returns void and setups connectivity between nodes', () => {

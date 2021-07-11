@@ -1,6 +1,22 @@
 import { UnionFindInterface } from "./types";
 
-export class QuickUnionFind implements UnionFindInterface {
+/**
+ * Quick find class data structure.
+ *    Space: O(N)
+ *
+ * Method description:
+ *  - connected:
+ *      Time complexity: O(1)
+ *      Space complexity: O(1)
+ *  - union:
+ *      Time complexity: O(N)
+ *      Space complexity: O(1)
+ *
+ *  For N objects to unite algorithm in takes:
+ *     Worst: O(n**2)
+ *     Average: O(n**2)
+ */
+export class QuickFind implements UnionFindInterface {
     private _data: number[];
 
     constructor(n: number) {

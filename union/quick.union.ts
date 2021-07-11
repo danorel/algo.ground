@@ -1,5 +1,21 @@
 import { QuickUnionInterface } from "./types";
 
+/**
+ * Quick union class data structure.
+ *    Space: O(N)
+ *
+ * Method description:
+ *  - connected:
+ *      Time complexity: O(N)
+ *      Space complexity: O(1)
+ *  - union:
+ *      Time complexity: 2*O(connected) = 2*O(N) = O(N)
+ *      Space complexity: O(1)
+ *
+ *  For N objects to unite algorithm in takes:
+ *     Worst: O(n**2)
+ *     Average: O(N*Log(n))
+ */
 export class QuickUnion implements QuickUnionInterface {
     private _data: number[];
 

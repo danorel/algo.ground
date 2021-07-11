@@ -2,6 +2,28 @@ import { QuickUnionInterface, UnionFindCanonicalInterface } from "./types";
 
 export interface QuickUnionWeightedInterface extends QuickUnionInterface, UnionFindCanonicalInterface {}
 
+/**
+ * Quick union-weighted data structure.
+ *    Space: O(N)
+ *
+ * Method description:
+ *  - parent:
+ *      Time complexity: O(log(N))
+ *      Space complexity: O(1)
+ *  - connected:
+ *      Time complexity: 2*O(parent) = 2*O(log(N)) = O(log(N))
+ *      Space complexity: O(1)
+ *  - union:
+ *      Time complexity: 2*O(connected) = 2*O(log(N)) = O(log(N))
+ *      Space complexity: O(1)
+ *  - find:
+ *      Time complexity: O(parent) + O(N) = O(log(N)) + O(N) = O(N)
+ *      Space complexity: O(1)
+ *
+ *  For N objects to unite algorithm in takes:
+ *     Worst: O(N*Log(N))
+ *     Average: O(N*Log(N))
+ */
 export class QuickUnionWeighted implements QuickUnionWeightedInterface {
     private _data: number[];
     private _counter: number[];
