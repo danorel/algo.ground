@@ -1,6 +1,8 @@
-import { QuickUnionInterface } from "./types";
+import { QuickUnionInterface, UnionFindCanonicalInterface } from "./types";
 
-export class QuickUnionWeighted implements QuickUnionInterface {
+export interface QuickUnionWeightedInterface extends QuickUnionInterface, UnionFindCanonicalInterface {}
+
+export class QuickUnionWeighted implements QuickUnionWeightedInterface {
     private _data: number[];
     private _counter: number[];
 
@@ -36,6 +38,16 @@ export class QuickUnionWeighted implements QuickUnionInterface {
             this._data[rb] = this.data[ra]!;
             this._counter[ra] += this._counter[rb]!;
         }
+    }
+
+    find(i: number): number {
+        if (!this.valid(i)) return -1;
+        const ri = this.parent(i);
+        for (let i = this._data.length - 1; i >= 0; --i) {
+            if (this._data[i] === ri)
+                return i;
+        }
+        return -1;
     }
 
     set data(data: number[]) {
