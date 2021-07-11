@@ -15,7 +15,7 @@ export class QuickUnionWeighted implements QuickUnionInterface {
 
     parent(i: number): number {
         if (!this.valid(i)) return -1;
-        while (i !== this._data[i]) i = this._data[i]!;
+        while (i !== this._data[i]) i = this._data[this._data[i]!]!; // Path compression: point to grandparent.
         return i;
     }
 
@@ -28,6 +28,7 @@ export class QuickUnionWeighted implements QuickUnionInterface {
         if (!this.valid(a) && !this.valid(b)) return;
         const ra = this.parent(a);
         const rb = this.parent(b);
+        if (ra === rb) return;
         if (this._counter[ra]! <= this._counter[rb]!) {
             this._data[ra] = this._data[rb]!;
             this._counter[rb] += this._counter[ra]!;
