@@ -1,9 +1,6 @@
-export interface QuickUnionFindInterface {
-    connected: (a: number, b: number) => boolean;
-    union: (a: number, b: number) => void;
-}
+import { UnionFindInterface } from "./types";
 
-export class QuickUnionFind implements QuickUnionFindInterface {
+export class QuickUnionFind implements UnionFindInterface {
     private _data: number[];
 
     constructor(n: number) {
