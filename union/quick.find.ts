@@ -7,13 +7,17 @@ export class QuickUnionFind implements UnionFindInterface {
         this._data = [...Array(n)].map((_, i) => i);
     }
 
+    private valid(i: number) {
+        return i >= 0 && i < this._data.length;
+    }
+
     public connected = (a: number, b: number) => {
+        if (!this.valid(a) && !this.valid(b)) return false;
         return this._data[a] === this._data[b];
     }
 
     public union = (a: number, b: number) => {
-        if ((a < 0 || a >= this._data.length) ||
-            (b < 0 || b >= this._data.length)) return;
+        if (!this.valid(a) && !this.valid(b)) return;
         const aId = this._data[a]!;
         const bId = this._data[b]!;
         for (let i = 0; i < this._data.length; ++i) {
